@@ -1,0 +1,58 @@
+{
+  "stationCollection": [
+    {
+      "station": "Dublin",
+      "id": "01",
+      "readings": [
+        {
+          "id": "03",
+          "code": 300,
+          "temperature": 18,
+          "windspeed": 13,
+          "pressure": 1003
+        },
+        {
+          "id": "05",
+          "code": 400,
+          "temperature": 14,
+          "windspeed": 13,
+          "pressure": 1003
+        },
+        {
+          "id": "06",
+          "code": 200,
+          "temperature": 9,
+          "windspeed": 13,
+          "pressure": 1003
+        }
+      ]
+    },
+    {
+      "station": "London",
+      "id": "02",
+      "readings": [
+        {
+          "id": "07",
+          "code": 500,
+          "temperature": 13,
+          "windspeed": 13,
+          "pressure": 1003
+        },
+        {
+          "id": "08",
+          "code": 200,
+          "temperature": 16,
+          "windspeed": 13,
+          "pressure": 1003
+        },
+        {
+          "id": "09",
+          "code": 100,
+          "temperature": 12,
+          "windspeed": 13,
+          "pressure": 1003
+        }
+      ]
+    }
+  ]
+}

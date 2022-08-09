@@ -1,0 +1,13 @@
+{{> menu id="dashboard"}}
+
+{{#each stations}}
+    <section class="ui segment">
+      <h2 class="ui header">
+        {{station}}
+      </h2>
+      <p>ID: {{id}} change being made visible in github</p>
+      <a href="/station/{{id}}">View</a>
+    </section>
+{{/each}}
+
+
