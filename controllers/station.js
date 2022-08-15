@@ -13,6 +13,20 @@ const station = {
     }
     response.render('station', viewData);
   },
+
+  addReading(request, response){
+    const stationId = request.params.id;
+    const station = stationStore.getStation(stationId);
+    const newReading = {
+      code: request.body.code,
+      temperature: request.body.temperature,
+      windspeed: request.body.windspeed,
+      winddirection: request.body.winddirection,
+      pressure: request.body.pressure,
+    };
+    stationStore.addReading(stationId, newReading);
+    response.redirect('/station/' + stationId);
+  },
 };
 
 module.exports = station;
