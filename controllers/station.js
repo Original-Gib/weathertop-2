@@ -14,6 +14,14 @@ const station = {
     response.render('station', viewData);
   },
 
+  deleteReading(request, response) {
+    const stationId = request.params.id;
+    const readingId = request.params.readingid;
+    logger.info(`Deleting Reading ${readingId} from Station ${stationId}`);
+    stationStore.removeReading(stationId, readingId);
+    response.redirect('/station/' + stationId);
+  },
+
   addReading(request, response){
     const stationId = request.params.id;
     const station = stationStore.getStation(stationId);

@@ -11,13 +11,12 @@ const stationStore = {
   },
 
   getStation(id) {
-    let foundStation = null;
-    for (let station of this.stationCollection) {
-      if (id == station.id) {
-        foundStation = station;
-      }
-    }
-    return foundStation;
+    return _.find(this.stationCollection, { id: id });
+  },
+
+  removeReading(id, songId) {
+    const station = this.getStation(id);
+    _.remove(station.readings, { id: songId });
   },
 
   addReading (id, reading){
