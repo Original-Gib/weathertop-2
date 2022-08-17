@@ -17,13 +17,27 @@
 
   <div class="ui inverted segment">
     <h2>Temperature</h2>
+    {{latestReading.temperature}} C </br>
+    {{fahrenheit}} F </br>
+    Max: {{maxTemp}} C </br>
+    Min: {{minTemp}} C
   </div>
 
   <div class="ui segment">
     <h2>Wind</h2>
+    {{beaufort}} bft </br>
+    {{windDirectionCompass}} </br>
+    Feels like: {{windChill}} C <br>
+    Max: {{maxWindSpeed}} <br>
+    Min: {{minWindSpeed}}
+
+
   </div>
 
   <div class="ui inverted segment">
     <h2>Pressure</h2>
+    {{latestReading.pressure}} hpa </br>
+    Max: {{maxPressure}} </br>
+    Min: {{minPressure}}
   </div>
 </div>

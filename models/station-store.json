@@ -8,7 +8,7 @@
           "id": "03",
           "code": 300,
           "temperature": 18,
-          "windspeed": 13,
+          "windspeed": 26,
           "winddirection": 240,
           "pressure": 1003
         },
@@ -18,15 +18,15 @@
           "temperature": 14,
           "windspeed": 13,
           "winddirection": 130,
-          "pressure": 1003
+          "pressure": 1006
         },
         {
           "id": "06",
           "code": 200,
           "temperature": 9,
-          "windspeed": 13,
+          "windspeed": 16,
           "winddirection": 57,
-          "pressure": 1003
+          "pressure": 997
         }
       ]
     },
@@ -38,7 +38,7 @@
           "id": "07",
           "code": 500,
           "temperature": 13,
-          "windspeed": 13,
+          "windspeed": 25,
           "winddirection": 340,
           "pressure": 1001
         },
@@ -54,7 +54,7 @@
           "id": "09",
           "code": 100,
           "temperature": 12,
-          "windspeed": 13,
+          "windspeed": 31,
           "winddirection": 80,
           "pressure": 1003
         }
