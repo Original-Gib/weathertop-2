@@ -2,6 +2,7 @@
 
 const logger = require("../utils/logger");
 const stationStore = require("../models/station-store.js");
+const uuid = require('uuid');
 const stationAnalytics = require("../utils/station-analytics");
 
 const station = {
@@ -9,33 +10,25 @@ const station = {
     const stationId = request.params.id;
     logger.info("Station ID = "+ stationId);
     const station = stationStore.getStation(stationId);
-    const latestReading = stationAnalytics.getLatestReading(station);
-    const maxTemp = stationAnalytics.getMaxTemperature(station);
-    const minTemp = stationAnalytics.getMinTemperature(station);
-    const fahrenheit = stationAnalytics.celciusToFahrenheit(station);
-    const maxPressure = stationAnalytics.getMaxPressure(station);
-    const minPressure = stationAnalytics.getMinPressure(station);
-    const beaufort = stationAnalytics.beaufortConversion(station);
-    const windDirectionCompass = stationAnalytics.windCompassDirection(station);
-    const maxWindSpeed = stationAnalytics.getMaxWindSpeed(station);
-    const minWindSpeed = stationAnalytics.getMinWindSpeed(station)
-    const windChill = stationAnalytics.calculateWindChill(station);
     const viewData = {
       title: "Station",
-      station: stationStore.getStation(stationId),
-      latestReading: latestReading,
-      maxTemp: maxTemp,
-      minTemp: minTemp,
-      fahrenheit: fahrenheit,
-      maxPressure: maxPressure,
-      minPressure: minPressure,
-      beaufort: beaufort,
-      windDirectionCompass: windDirectionCompass,
-      maxWindSpeed: maxWindSpeed,
-      minWindSpeed: minWindSpeed,
-      windChill: windChill,
+      station: station,
+      stationsummary: {
+        latestReading: stationAnalytics.getLatestReading(station),
+        maxTemp: stationAnalytics.getMaxTemperature(station),
+        minTemp: stationAnalytics.getMinTemperature(station),
+        fahrenheit: stationAnalytics.celciusToFahrenheit(station),
+        maxPressure: stationAnalytics.getMaxPressure(station),
+        minPressure: stationAnalytics.getMinPressure(station),
+        beaufort: stationAnalytics.beaufortConversion(station),
+        windDirectionCompass: stationAnalytics.windCompassDirection(station),
+        maxWindSpeed: stationAnalytics.getMaxWindSpeed(station),
+        minWindSpeed: stationAnalytics.getMinWindSpeed(station),
+        windChill: stationAnalytics.calculateWindChill(station),
+      }
     }
     response.render('station', viewData);
+
   },
 
   deleteReading(request, response) {
@@ -50,6 +43,7 @@ const station = {
     const stationId = request.params.id;
     const station = stationStore.getStation(stationId);
     const newReading = {
+      id: uuid.v1(),
       code: request.body.code,
       temperature: request.body.temperature,
       windspeed: request.body.windspeed,
@@ -62,3 +56,4 @@ const station = {
 };
 
 module.exports = station;
+

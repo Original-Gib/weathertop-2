@@ -5,8 +5,8 @@
     {{station.station}} <em data-emoji=":round_pushpin:" class="small"></em>
   </h2>
   <p>
-    Lat: lat </br>
-    Long: long
+    Lat: {{station.latitude}} </br>
+    Long: {{station.longitude}}
   </p>
 
 </div>
@@ -17,27 +17,27 @@
 
   <div class="ui inverted segment">
     <h2>Temperature</h2>
-    {{latestReading.temperature}} C </br>
-    {{fahrenheit}} F </br>
-    Max: {{maxTemp}} C </br>
-    Min: {{minTemp}} C
+    {{stationsummary.latestReading.temperature}} C </br>
+    {{stationsummary.fahrenheit}} F </br>
+    Max: {{stationsummary.maxTemp}} C </br>
+    Min: {{stationsummary.minTemp}} C
   </div>
 
   <div class="ui segment">
     <h2>Wind</h2>
-    {{beaufort}} bft </br>
-    {{windDirectionCompass}} </br>
-    Feels like: {{windChill}} C <br>
-    Max: {{maxWindSpeed}} <br>
-    Min: {{minWindSpeed}}
+    {{stationsummary.beaufort}} bft </br>
+    {{stationsummary.windDirectionCompass}} </br>
+    Feels like: {{stationsummary.windChill}} C <br>
+    Max: {{stationsummary.maxWindSpeed}} <br>
+    Min: {{stationsummary.minWindSpeed}}
 
 
   </div>
 
   <div class="ui inverted segment">
     <h2>Pressure</h2>
-    {{latestReading.pressure}} hpa </br>
-    Max: {{maxPressure}} </br>
-    Min: {{minPressure}}
+    {{stationsummary.latestReading.pressure}} hpa </br>
+    Max: {{stationsummary.maxPressure}} </br>
+    Min: {{stationsummary.minPressure}}
   </div>
 </div>
