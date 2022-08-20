@@ -5,11 +5,13 @@
       <h2 class="ui header">
         {{station}}
       </h2>
+
       {{> stationsummary}}
+
       <a href="/station/{{id}}"><button class="ui icon button"><i class="folder icon"></i></button></a>
+    <a href="/station/{{id}}/deletestation/"><button class="ui icon red button"><i class="trash icon"></i></button></a>
   </section>
 {{/each}}
-
 
   {{> addstation}}
 

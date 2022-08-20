@@ -27,6 +27,7 @@ const station = {
         windChill: stationAnalytics.calculateWindChill(station),
       }
     }
+    logger.info('about to render' + stationStore.getStation(stationId))
     response.render('station', viewData);
 
   },

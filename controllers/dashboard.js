@@ -4,13 +4,15 @@ const logger = require("../utils/logger");
 const uuid = require('uuid');
 const stationStore = require("../models/station-store.js");
 const stationAnalytics = require("../utils/station-analytics");
+const { response } = require("express");
 
 const dashboard = {
   index(request, response) {
     logger.info("dashboard rendering");
+    const stations = stationStore.getAllStations();
     const viewData = {
       title: "Station Dashboard",
-      stations: stationStore.getAllStations(),
+      stations: stations,
     };
     logger.info("about to render", stationStore.getAllStations());
     response.render("dashboard", viewData);
@@ -27,6 +29,13 @@ const dashboard = {
     stationStore.addStation(newStation);
     response.redirect('/dashboard');
   },
+
+  deleteStation(request, response){
+    const stationId = request.params.id;
+    logger.info('Deleting station: ' + stationId)
+    stationStore.removeStation(stationId);
+    response.redirect('/dashboard/')
+  }
 };
 
 module.exports = dashboard;
