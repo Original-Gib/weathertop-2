@@ -8,6 +8,7 @@ const stationStore = {
   store: new JsonStore('./models/station-store.json', {stationCollection: [] }),
   collection: 'stationCollection',
 
+
   getAllStations() {
     return this.store.findAll(this.collection);
   },
@@ -43,6 +44,10 @@ const stationStore = {
     const station = this.getStation(id);
     station.readings.push(reading);
     this.store.save();
+  },
+
+  getUserStations(userid) {
+    return this.store.findBy(this.collection, { userid: userid });
   },
 
 };

@@ -1,68 +1,45 @@
 {
   "stationCollection": [
     {
+      "id": "0a8b9fd0-217b-11ed-be49-e33615a052eb",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
       "station": "Dublin",
-      "latitude": 53.35,
-      "longitude": -6.26,
-      "id": "01",
+      "latitude": "53.35",
+      "longitude": "-6.26",
       "readings": [
         {
-          "id": "03",
-          "code": 300,
-          "temperature": 18,
-          "windspeed": 26,
-          "winddirection": 240,
-          "pressure": 1003
+          "id": "7d5b59f0-2181-11ed-8240-879fb3ff57f9",
+          "code": 100,
+          "temperature": 13,
+          "windspeed": 21,
+          "winddirection": 132,
+          "pressure": 1001
         },
         {
-          "id": "05",
-          "code": 400,
-          "temperature": 14,
-          "windspeed": 13,
-          "winddirection": 130,
-          "pressure": 1006
-        },
-        {
-          "id": "06",
+          "id": "7eeb5350-2182-11ed-98fb-5bf1065b33cf",
           "code": 200,
+          "temperature": 15,
+          "windspeed": 11,
+          "winddirection": 214,
+          "pressure": 1005
+        },
+        {
+          "id": "94082420-2182-11ed-98fb-5bf1065b33cf",
+          "code": 400,
           "temperature": 9,
-          "windspeed": 16,
-          "winddirection": 57,
-          "pressure": 997
+          "windspeed": 34,
+          "winddirection": 46,
+          "pressure": 994
         }
       ]
     },
     {
+      "id": "cb73eea0-217b-11ed-be49-e33615a052eb",
+      "userid": "2b6f0989-7b7f-4a38-ad26-aa06b922d751",
       "station": "London",
-      "latitude": 51.5,
-      "longitude": -0.11,
-      "id": "02",
-      "readings": [
-        {
-          "id": "07",
-          "code": 500,
-          "temperature": 13,
-          "windspeed": 25,
-          "winddirection": 340,
-          "pressure": 1001
-        },
-        {
-          "id": "08",
-          "code": 200,
-          "temperature": 16,
-          "windspeed": 13,
-          "winddirection": 140,
-          "pressure": 995
-        },
-        {
-          "id": "09",
-          "code": 100,
-          "temperature": 12,
-          "windspeed": 31,
-          "winddirection": 80,
-          "pressure": 1003
-        }
-      ]
+      "latitude": "51.51",
+      "longitude": "-0.11",
+      "readings": []
     }
   ]
 }

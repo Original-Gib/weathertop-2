@@ -45,11 +45,11 @@ const station = {
     const station = stationStore.getStation(stationId);
     const newReading = {
       id: uuid.v1(),
-      code: request.body.code,
-      temperature: request.body.temperature,
-      windspeed: request.body.windspeed,
-      winddirection: request.body.winddirection,
-      pressure: request.body.pressure,
+      code: Number (request.body.code),
+      temperature: Number (request.body.temperature),
+      windspeed: Number (request.body.windspeed),
+      winddirection: Number (request.body.winddirection),
+      pressure: Number (request.body.pressure),
     };
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
