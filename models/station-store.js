@@ -1,36 +1,50 @@
 "use strict";
 
 const _ = require("lodash");
+const JsonStore = require('./json-store');
 
 const stationStore = {
 
-  stationCollection: require('./station-store.json').stationCollection,
+  store: new JsonStore('./models/station-store.json', {stationCollection: [] }),
+  collection: 'stationCollection',
 
   getAllStations() {
-    return this.stationCollection;
+    return this.store.findAll(this.collection);
   },
 
   getStation(id) {
-    return _.find(this.stationCollection, { id: id });
+    return this.store.findOneBy(this.collection, {id: id});
   },
 
-  removeReading(id, songId) {
+  addStation(station) {
+    this.store.add(this.collection, station);
+    this.store.save();
+  },
+
+  removeStation(id) {
     const station = this.getStation(id);
-    _.remove(station.readings, { id: songId });
+    this.store.remove(this.collection, station);
+    this.store.save();
+  },
+
+  removeAllStations(){
+    this.store.removeAll(this.collection);
+    this.store.save();
+  },
+
+  removeReading(id, readingId) {
+    const station = this.getStation(id);
+   const readings = station.readings;
+   _. remove(readings, {id: readingId});
+   this.store.save();
   },
 
   addReading (id, reading){
     const station = this.getStation(id);
     station.readings.push(reading);
+    this.store.save();
   },
 
-  addStation(station) {
-    this.stationCollection.push(station);
-  },
-
-  removeStation(id) {
-    _.remove(this.stationCollection, { id: id });
-  },
 };
 
   module.exports = stationStore;
