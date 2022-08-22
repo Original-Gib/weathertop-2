@@ -180,6 +180,20 @@ const stationAnalytics = {
       windChill = 13.12 + 0.6215 * temperature - 11.37 * windSpeed ** 0.16 + 0.3965 * temperature * windSpeed ** 0.16;
     }
     return Math.round(windChill);
+  },
+
+  getWeatherFromCode(code){
+    let conditionMap = new Map();
+    conditionMap.set(100, "Clear");
+    conditionMap.set(200, "Partial Clouds");
+    conditionMap.set(300, "Cloudy");
+    conditionMap.set(400, "Light Showers");
+    conditionMap.set(500, "Heavy Showers");
+    conditionMap.set(600, "Rain");
+    conditionMap.set(700, "Thunder");
+    conditionMap.set(800, "Snow");
+
+    return conditionMap.get(code);
   }
 }
 
