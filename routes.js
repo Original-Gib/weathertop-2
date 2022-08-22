@@ -22,7 +22,10 @@ router.get('/', accounts.index);
 router.get('/login', accounts.login);
 router.get('/signup', accounts.signup);
 router.get('/logout', accounts.logout);
+router.get('/account', accounts.viewAccount);
+router.post('/editdetails', accounts.editDetails);
 router.post('/register', accounts.register);
 router.post('/authenticate', accounts.authenticate);
+
 
 module.exports = router;

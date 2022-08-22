@@ -4,6 +4,7 @@ const userstore = require('../models/user-store');
 const logger = require('../utils/logger');
 const uuid = require('uuid');
 
+
 const accounts = {
 
   index(request, response) {
@@ -42,7 +43,8 @@ const accounts = {
 
   authenticate(request, response) {
     const user = userstore.getUserByEmail(request.body.email);
-    if (user) {
+    const password = request.body.password;
+    if (user && password === user.password) {
       response.cookie('station', user.email);
       logger.info(`logging in ${user.email}`);
       response.redirect('/dashboard');
@@ -55,6 +57,31 @@ const accounts = {
     const userEmail = request.cookies.station;
     return userstore.getUserByEmail(userEmail);
   },
+
+  viewAccount(request, response) {
+    const loggedInUser = accounts.getCurrentUser(request)
+    const viewData = {
+      title: 'Account Info',
+      firstname: loggedInUser.firstName,
+      lastname: loggedInUser.lastName,
+      email: loggedInUser.email,
+
+    };
+    response.render('account', viewData);
+  },
+
+  editDetails(request, response){
+    const loggedInUser = accounts.getCurrentUser(request);
+    const updatedUser = {
+      firstName: request.body.firstname,
+      lastName: request.body.lastname,
+      email: request.body.email,
+      password: request.body.password,
+    };
+    userstore.updateUser(loggedInUser, updatedUser);
+    response.cookie('station', updatedUser.email);
+    response.redirect('account');
+  }
 };
 
 module.exports = accounts;

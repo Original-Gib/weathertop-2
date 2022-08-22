@@ -1,0 +1,60 @@
+{{> menu id="account"}}
+
+<section class="ui segment">
+
+  <div class="ui two column grid">
+    <div class="column">
+      <div class="ui segment">
+        <a class="ui orange left ribbon label">Account Details</a>
+        <div class="ui list">
+          <div class="item">
+            <i class="clipboard icon"></i>
+            <div class="content">
+              <b>First Name:</b> {{firstname}} <br>
+              <b>Last Name:</b> {{lastname}}
+            </div>
+          </div>
+          <div class="item">
+            <i class="mail icon"></i>
+            <div class="content">
+              <a href="mailto:${member.email}">{{email}}</a>
+            </div>
+          </div>
+          <div class="item">
+            <i class="key icon"></i>
+            <div class="content">
+              *********
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="ui segment">
+        <a class="ui teal right ribbon label">Edit Details</a>
+        <form class="ui form" action="/editdetails" method="POST">
+          <div class="two fields">
+            <div class="field">
+              <label>First Name</label>
+              <input placeholder="First Name" type="text" name="firstname" required>
+            </div>
+            <div class="field">
+              <label>Last Name</label>
+              <input placeholder="Last Name" type="text" name="lastname" required>
+            </div>
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input placeholder="Email" type="text" name="email" required>
+          </div>
+          <div class="field">
+            <label>Password</label>
+            <input type="password" name="password" required>
+          </div>
+          <button class="ui blue submit button">Update Details</button>
+        </form>
+        <p></p>
+      </div>
+    </div>
+  </div>
+</section>
