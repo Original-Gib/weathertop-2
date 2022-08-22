@@ -26,6 +26,7 @@ const station = {
         minWindSpeed: stationAnalytics.getMinWindSpeed(station),
         windChill: stationAnalytics.calculateWindChill(station),
         weatherCondition: stationAnalytics.getWeatherFromCode(stationAnalytics.getLatestReading(station).code),
+        weatherConditionIcon: stationAnalytics.getWeatherIconFromCode(stationAnalytics.getLatestReading(station).code),
       }
     }
     logger.info('about to render' + stationStore.getStation(stationId))

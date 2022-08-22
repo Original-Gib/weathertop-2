@@ -194,6 +194,21 @@ const stationAnalytics = {
     conditionMap.set(800, "Snow");
 
     return conditionMap.get(code);
+  },
+
+  getWeatherIconFromCode(code){
+    let conditionIconMap = new Map();
+    conditionIconMap.set(100, "sunny");
+    conditionIconMap.set(200, "white_sun_small_cloud");
+    conditionIconMap.set(300, "cloud");
+    conditionIconMap.set(400, "white_sun_rain_cloud");
+    conditionIconMap.set(500, "cloud_rain");
+    conditionIconMap.set(600, "umbrella");
+    conditionIconMap.set(700, "thunder_cloud_rain");
+    conditionIconMap.set(800, "snowflake");
+
+    return conditionIconMap.get(code);
+
   }
 }
 

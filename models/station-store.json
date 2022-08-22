@@ -22,30 +22,6 @@
           "windspeed": 11,
           "winddirection": 214,
           "pressure": 1005
-        },
-        {
-          "id": "94082420-2182-11ed-98fb-5bf1065b33cf",
-          "code": 400,
-          "temperature": 9,
-          "windspeed": 34,
-          "winddirection": 46,
-          "pressure": 994
-        },
-        {
-          "id": "9e24a320-222c-11ed-941e-bf5e9950afb9",
-          "code": 300,
-          "temperature": 12,
-          "windspeed": 12,
-          "winddirection": 12,
-          "pressure": 12
-        },
-        {
-          "id": "b6e66010-222c-11ed-941e-bf5e9950afb9",
-          "code": 100,
-          "temperature": 10,
-          "windspeed": 10,
-          "winddirection": 10,
-          "pressure": 10
         }
       ]
     },
