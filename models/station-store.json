@@ -8,28 +8,31 @@
       "longitude": "-6.26",
       "readings": [
         {
-          "id": "7d5b59f0-2181-11ed-8240-879fb3ff57f9",
+          "id": "52499290-2307-11ed-a35f-1bc7a46fd44d",
           "code": 100,
-          "temperature": 13,
-          "windspeed": 21,
-          "winddirection": 132,
-          "pressure": 1001
+          "temperature": 10,
+          "windspeed": 31,
+          "winddirection": 104,
+          "pressure": 993,
+          "date": "Tue, 23 Aug 2022 17:16:27 GMT"
         },
         {
-          "id": "7eeb5350-2182-11ed-98fb-5bf1065b33cf",
+          "id": "dfe12190-2307-11ed-a35f-1bc7a46fd44d",
           "code": 200,
-          "temperature": 15,
-          "windspeed": 11,
-          "winddirection": 214,
-          "pressure": 1005
+          "temperature": 19,
+          "windspeed": 21,
+          "winddirection": 149,
+          "pressure": 1001,
+          "date": "Tue, 23 Aug 2022 17:20:24 GMT"
         },
         {
-          "id": "70a51cb0-22d9-11ed-bb5e-3d3db4b92b11",
-          "code": 400,
-          "temperature": 21,
-          "windspeed": 5,
-          "winddirection": 318,
-          "pressure": 998
+          "id": "47e93610-2308-11ed-a35f-1bc7a46fd44d",
+          "code": 500,
+          "temperature": 4,
+          "windspeed": 33,
+          "winddirection": 163,
+          "pressure": 1004,
+          "date": "Tue, 23 Aug 2022 17:23:19 GMT"
         }
       ]
     },

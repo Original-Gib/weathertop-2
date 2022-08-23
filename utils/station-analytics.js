@@ -182,64 +182,74 @@ const stationAnalytics = {
     return Math.round(windChill);
   },
 
-  getWeatherFromCode(code){
-    let conditionMap = new Map();
-    conditionMap.set(100, "Clear");
-    conditionMap.set(200, "Partial Clouds");
-    conditionMap.set(300, "Cloudy");
-    conditionMap.set(400, "Light Showers");
-    conditionMap.set(500, "Heavy Showers");
-    conditionMap.set(600, "Rain");
-    conditionMap.set(700, "Thunder");
-    conditionMap.set(800, "Snow");
+  getWeatherFromCode(station){
+    if (station.readings.length > 0) {
+      let code = this.getLatestReading(station).code;
+      let conditionMap = new Map();
+      conditionMap.set(100, "Clear");
+      conditionMap.set(200, "Partial Clouds");
+      conditionMap.set(300, "Cloudy");
+      conditionMap.set(400, "Light Showers");
+      conditionMap.set(500, "Heavy Showers");
+      conditionMap.set(600, "Rain");
+      conditionMap.set(700, "Thunder");
+      conditionMap.set(800, "Snow");
 
-    return conditionMap.get(code);
+      return conditionMap.get(code);
+    }
   },
 
-  getWeatherIconFromCode(code){
-    let conditionIconMap = new Map();
-    conditionIconMap.set(100, "sunny");
-    conditionIconMap.set(200, "white_sun_small_cloud");
-    conditionIconMap.set(300, "cloud");
-    conditionIconMap.set(400, "white_sun_rain_cloud");
-    conditionIconMap.set(500, "cloud_rain");
-    conditionIconMap.set(600, "umbrella");
-    conditionIconMap.set(700, "thunder_cloud_rain");
-    conditionIconMap.set(800, "snowflake");
+  getWeatherIconFromCode(station){
+    if (station.readings.length > 0) {
+      let code = this.getLatestReading(station).code;
+      let conditionIconMap = new Map();
+      conditionIconMap.set(100, "sunny");
+      conditionIconMap.set(200, "white_sun_small_cloud");
+      conditionIconMap.set(300, "cloud");
+      conditionIconMap.set(400, "white_sun_rain_cloud");
+      conditionIconMap.set(500, "cloud_rain");
+      conditionIconMap.set(600, "umbrella");
+      conditionIconMap.set(700, "thunder_cloud_rain");
+      conditionIconMap.set(800, "snowflake");
 
-    return conditionIconMap.get(code);
+      return conditionIconMap.get(code);
+    }
   },
 
   temperatureTrend(station) {
-    if (station.readings.length >= 3) {
-      let index = station.readings.length - 1;
-      let temperatureOne = station.readings[index].temperature;
-      let temperatureTwo = station.readings[index - 1].temperature;
-      let temperatureThree = station.readings[index - 2].temperature;
-      if ((temperatureTwo < temperatureOne) && (temperatureThree < temperatureTwo)) {
-        return 'up';
-      } else if ((temperatureTwo > temperatureOne) && (temperatureThree > temperatureTwo)) {
-        return 'down';
-      } else {
-        return 'stable';
-      };
+    if (station.readings.length > 0) {
+      if (station.readings.length >= 3) {
+        let index = station.readings.length - 1;
+        let temperatureOne = station.readings[index].temperature;
+        let temperatureTwo = station.readings[index - 1].temperature;
+        let temperatureThree = station.readings[index - 2].temperature;
+        if ((temperatureTwo < temperatureOne) && (temperatureThree < temperatureTwo)) {
+          return 'up';
+        } else if ((temperatureTwo > temperatureOne) && (temperatureThree > temperatureTwo)) {
+          return 'down';
+        } else {
+          return 'stable';
+        }
+      }
     }
   },
 
   pressureTrend(station) {
-    if (station.readings.length >= 3) {
-      let index = station.readings.length - 1;
-      let pressureOne = station.readings[index].pressure;
-      let pressureTwo = station.readings[index - 1].pressure;
-      let pressureThree = station.readings[index - 2].pressure;
-      if ((pressureTwo < pressureOne) && (pressureThree < pressureTwo)) {
-        return 'up';
-      } else if ((pressureTwo > pressureOne) && (pressureThree > pressureTwo)) {
-        return 'down';
-      } else {
-        return 'stable';
+    if (station.readings.length >0) {
+      if (station.readings.length >= 3) {
+        let index = station.readings.length - 1;
+        let pressureOne = station.readings[index].pressure;
+        let pressureTwo = station.readings[index - 1].pressure;
+        let pressureThree = station.readings[index - 2].pressure;
+        if ((pressureTwo < pressureOne) && (pressureThree < pressureTwo)) {
+          return 'up';
+        } else if ((pressureTwo > pressureOne) && (pressureThree > pressureTwo)) {
+          return 'down';
+        } else {
+          return 'stable';
+        }
+        ;
       }
-      ;
     }
   },
 

@@ -25,8 +25,8 @@ const station = {
         maxWindSpeed: stationAnalytics.getMaxWindSpeed(station),
         minWindSpeed: stationAnalytics.getMinWindSpeed(station),
         windChill: stationAnalytics.calculateWindChill(station),
-        weatherCondition: stationAnalytics.getWeatherFromCode(stationAnalytics.getLatestReading(station).code),
-        weatherConditionIcon: stationAnalytics.getWeatherIconFromCode(stationAnalytics.getLatestReading(station).code),
+        weatherCondition: stationAnalytics.getWeatherFromCode(station),
+        weatherConditionIcon: stationAnalytics.getWeatherIconFromCode(station),
         temperatureTrend: stationAnalytics.trendIcon(stationAnalytics.temperatureTrend(station)),
         pressureTrend: stationAnalytics.trendIcon(stationAnalytics.pressureTrend(station)),
       }
@@ -47,6 +47,8 @@ const station = {
   addReading(request, response){
     const stationId = request.params.id;
     const station = stationStore.getStation(stationId);
+    let date = null;
+    date = new Date();
     const newReading = {
       id: uuid.v1(),
       code: Number (request.body.code),
@@ -54,6 +56,8 @@ const station = {
       windspeed: Number (request.body.windspeed),
       winddirection: Number (request.body.winddirection),
       pressure: Number (request.body.pressure),
+      date: date.toGMTString(),
+
     };
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
