@@ -4,6 +4,7 @@ const logger = require("../utils/logger");
 const stationStore = require("../models/station-store.js");
 const uuid = require('uuid');
 const stationAnalytics = require("../utils/station-analytics");
+const axios = require("axios");
 
 const station = {
   index(request,response){
@@ -61,6 +62,27 @@ const station = {
     };
     stationStore.addReading(stationId, newReading);
     response.redirect('/station/' + stationId);
+  },
+
+    async addReport(request, response) {
+    let report = {};
+    const stationId = request.params.id;
+    const station = stationStore.getStation(stationId);
+    const lat = station.latitude;
+    const long = station.longitude;
+    const requestUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=d52e00baa769d246e850c002f3093f85`;
+    const result = await axios.get(requestUrl);
+    if (result.status === 200){
+      const newReport ={
+      }
+
+    }
+    logger.info('Adding new report to ' + station.station);
+    const viewData = {
+      title: 'Weather Report',
+      reading: report
+    };
+    response.render("station", viewData);
   },
 };
 
