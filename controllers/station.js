@@ -27,6 +27,8 @@ const station = {
         windChill: stationAnalytics.calculateWindChill(station),
         weatherCondition: stationAnalytics.getWeatherFromCode(stationAnalytics.getLatestReading(station).code),
         weatherConditionIcon: stationAnalytics.getWeatherIconFromCode(stationAnalytics.getLatestReading(station).code),
+        temperatureTrend: stationAnalytics.trendIcon(stationAnalytics.temperatureTrend(station)),
+        pressureTrend: stationAnalytics.trendIcon(stationAnalytics.pressureTrend(station)),
       }
     }
     logger.info('about to render' + stationStore.getStation(stationId))

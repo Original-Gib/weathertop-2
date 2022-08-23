@@ -22,6 +22,14 @@
           "windspeed": 11,
           "winddirection": 214,
           "pressure": 1005
+        },
+        {
+          "id": "70a51cb0-22d9-11ed-bb5e-3d3db4b92b11",
+          "code": 400,
+          "temperature": 21,
+          "windspeed": 5,
+          "winddirection": 318,
+          "pressure": 998
         }
       ]
     },

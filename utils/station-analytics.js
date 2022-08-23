@@ -208,7 +208,48 @@ const stationAnalytics = {
     conditionIconMap.set(800, "snowflake");
 
     return conditionIconMap.get(code);
+  },
 
+  temperatureTrend(station) {
+    if (station.readings.length >= 3) {
+      let index = station.readings.length - 1;
+      let temperatureOne = station.readings[index].temperature;
+      let temperatureTwo = station.readings[index - 1].temperature;
+      let temperatureThree = station.readings[index - 2].temperature;
+      if ((temperatureTwo < temperatureOne) && (temperatureThree < temperatureTwo)) {
+        return 'up';
+      } else if ((temperatureTwo > temperatureOne) && (temperatureThree > temperatureTwo)) {
+        return 'down';
+      } else {
+        return 'stable';
+      };
+    }
+  },
+
+  pressureTrend(station) {
+    if (station.readings.length >= 3) {
+      let index = station.readings.length - 1;
+      let pressureOne = station.readings[index].pressure;
+      let pressureTwo = station.readings[index - 1].pressure;
+      let pressureThree = station.readings[index - 2].pressure;
+      if ((pressureTwo < pressureOne) && (pressureThree < pressureTwo)) {
+        return 'up';
+      } else if ((pressureTwo > pressureOne) && (pressureThree > pressureTwo)) {
+        return 'down';
+      } else {
+        return 'stable';
+      }
+      ;
+    }
+  },
+
+  trendIcon(trend){
+    let trendIconMap = new Map();
+    trendIconMap.set('up', "angle double green up icon");
+    trendIconMap.set('down', "angle double red down icon");
+    trendIconMap.set('stable', "angle double right icon");
+
+    return trendIconMap.get(trend);
   }
 }
 

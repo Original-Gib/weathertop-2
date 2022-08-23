@@ -21,15 +21,18 @@
   </div>
 
   <div class="ui inverted segment">
-    <h2>Temperature</h2>
+    <h2>Temperature <em data-emoji=":thermometer:" class="small"></em> <i class="{{stationsummary.temperatureTrend}}"></i></h2>
     {{stationsummary.latestReading.temperature}} C </br>
     {{stationsummary.fahrenheit}} F </br>
     Max: {{stationsummary.maxTemp}} C </br>
-    Min: {{stationsummary.minTemp}} C
+    Min: {{stationsummary.minTemp}} C <br>
+
+    {{stationsumary.temperatureTrend}}
+
   </div>
 
   <div class="ui segment">
-    <h2>Wind</h2>
+    <h2>Wind <em data-emoji=":wind_blowing_face:" class="small"></em></h2>
     {{stationsummary.beaufort}} bft </br>
     {{stationsummary.windDirectionCompass}} </br>
     Feels like: {{stationsummary.windChill}} C <br>
@@ -40,7 +43,7 @@
   </div>
 
   <div class="ui inverted segment">
-    <h2>Pressure</h2>
+    <h2>Pressure <em data-emoji=":cyclone:" class="small"></em> <i class="{{stationsummary.pressureTrend}}"></i> </h2>
     {{stationsummary.latestReading.pressure}} hpa </br>
     Max: {{stationsummary.maxPressure}} </br>
     Min: {{stationsummary.minPressure}}
