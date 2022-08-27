@@ -65,7 +65,6 @@ const station = {
   },
 
     async addReport(request, response) {
-    let report = {};
     const stationId = request.params.id;
     const station = stationStore.getStation(stationId);
     const lat = station.latitude;
@@ -74,15 +73,18 @@ const station = {
     const result = await axios.get(requestUrl);
     if (result.status === 200){
       const newReport ={
+        id: uuid.v1(),
+        code: Number (result.data.cod),
+        temperature: Number (result.data.main.temp),
+        windspeed: Number (result.data.wind.speed),
+        winddirection: Number (result.data.wind.deg),
+        pressure: Number (result.data.main.pressure),
+        date: result.headers.date,
       }
-
+      stationStore.addReading(stationId, newReport);
     }
     logger.info('Adding new report to ' + station.station);
-    const viewData = {
-      title: 'Weather Report',
-      reading: report
-    };
-    response.render("station", viewData);
+    response.redirect('/station/' + stationId);
   },
 };
 

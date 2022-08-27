@@ -33,6 +33,15 @@
           "winddirection": 163,
           "pressure": 1004,
           "date": "Tue, 23 Aug 2022 17:23:19 GMT"
+        },
+        {
+          "id": "00d58eb0-25fe-11ed-b019-37bab4ba736d",
+          "code": 200,
+          "temperature": 19.06,
+          "windspeed": 3.6,
+          "winddirection": 80,
+          "pressure": 1021,
+          "date": "Sat, 27 Aug 2022 11:47:20 GMT"
         }
       ]
     },
@@ -42,7 +51,17 @@
       "station": "London",
       "latitude": "51.51",
       "longitude": "-0.11",
-      "readings": []
+      "readings": [
+        {
+          "id": "211e05d0-25fe-11ed-b019-37bab4ba736d",
+          "code": 200,
+          "temperature": 23.17,
+          "windspeed": 4.12,
+          "winddirection": 90,
+          "pressure": 1018,
+          "date": "Sat, 27 Aug 2022 11:48:14 GMT"
+        }
+      ]
     }
   ]
 }
