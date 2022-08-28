@@ -31,12 +31,11 @@ const station = {
         weatherConditionIcon: stationAnalytics.getWeatherIconFromCode(station),
         temperatureTrend: stationAnalytics.trendIcon(stationAnalytics.temperatureTrend(station)),
         pressureTrend: stationAnalytics.trendIcon(stationAnalytics.pressureTrend(station)),
-        trendlabel: trends.getTrendLabelData(station),
-        temperatureChartTrend: trends.temperatureTrendData(station),
-        windSpeedChartTrend: trends.windSpeedTrendData(station),
       },
-
-
+      trendlabel: trends.getTrendLabelData(station),
+      temperatureChartTrend: trends.temperatureTrendData(station),
+      windSpeedChartTrend: trends.windSpeedTrendData(station),
+      pressureChartTrend: trends.pressureTrendData(station),
     }
     logger.info('about to render' + stationStore.getStation(stationId))
     console.log(trends.getTrendLabelData(station));

@@ -60,6 +60,15 @@
           "winddirection": 80,
           "pressure": 1023,
           "date": "Sun, 28 Aug 2022 16:03:22 GMT"
+        },
+        {
+          "id": "8e0aea80-26f0-11ed-8ea9-11249472bbab",
+          "code": 803,
+          "temperature": 17.66,
+          "windspeed": 3.6,
+          "winddirection": 70,
+          "pressure": 1023,
+          "date": "Sun, 28 Aug 2022 16:43:33 GMT"
         }
       ]
     },
@@ -78,6 +87,24 @@
           "winddirection": 100,
           "pressure": 1021,
           "date": "Sun, 28 Aug 2022 16:00:58 GMT"
+        }
+      ]
+    },
+    {
+      "id": "d66c09f0-26ee-11ed-b118-4f571b65f8ff",
+      "userid": "3ad52697-6d98-4d80-8273-084de55a86c0",
+      "station": "Kerry",
+      "latitude": "52.05",
+      "longitude": "-9.50",
+      "readings": [
+        {
+          "id": "e70f87a0-26ee-11ed-b118-4f571b65f8ff",
+          "code": 803,
+          "temperature": 22.02,
+          "windspeed": 4.12,
+          "winddirection": 80,
+          "pressure": 1020,
+          "date": "Sun, 28 Aug 2022 16:31:46 GMT"
         }
       ]
     }

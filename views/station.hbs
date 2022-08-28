@@ -5,24 +5,46 @@
     {{> stationsummary}}
   </h2>
 
-  <div class="ui segment" id="chart"></div>
+  <div class="ui segment" id="chart">
   <script>
     data = {
-      labels: [{{#each stationsummary.trendlabel}}
+      labels: [{{#each trendlabel}}
         "{{this}}",
       {{/each}}],
       datasets: [
-        {name: 'Temperature', values: [{{stationsummary.temperatureChartTrend}}], chartType: 'line'},
-        {name: 'Wind Speed', values: [{{stationsummary.windSpeedChartTrend}}], chartType: 'line'}
+        {name: 'Temperature', values: [{{temperatureChartTrend}}], chartType: 'line'},
+        {name: 'Wind Speed', values: [{{windSpeedChartTrend}}], chartType: 'line'}
       ]
     };
     new frappe.Chart("#chart", {
+      title: 'Temperature & Wind',
       data: data,
       type: "line",
       height: 180,
       colors: ["red"]
     });
   </script>
+  </div>
+<div class="ui segment" id="pressurechart">
+    <script>
+      data = {
+        labels: [{{#each trendlabel}}
+          "{{this}}",
+        {{/each}}],
+        datasets: [
+          {name: 'Pressure', values: [{{pressureChartTrend}}], chartType: 'line'},
+
+        ]
+      };
+      new frappe.Chart("#pressurechart", {
+        title: 'Pressure Trend',
+        data: data,
+        type: "line",
+        height: 180,
+        colors: ["green"]
+      });
+    </script>
+  </div>
 
   {{> listreadings}}
   {{> addreading}}

@@ -35,6 +35,16 @@ const trends = {
     return windSpeedChartTrend;
   },
 
+  pressureTrendData(station){
+    let pressureChartTrend = null;
+    if (station.readings.length > 0){
+      pressureChartTrend = [];
+      for (let i = 0; i < station.readings.length; i++){
+        pressureChartTrend.push(station.readings[i].pressure) }
+    }
+    return pressureChartTrend;
+  },
+
 
 }
 
