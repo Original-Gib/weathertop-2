@@ -185,34 +185,70 @@ const stationAnalytics = {
   getWeatherFromCode(station){
     if (station.readings.length > 0) {
       let code = this.getLatestReading(station).code;
+      let key = null;
+      if (code >= 200 && code <= 232){
+        key = 200;
+      } else if (code >= 300 && code <= 311){
+        key = 300;
+      } else if (code >= 312 && code <= 321) {
+        key = 350;
+      } else if ( code >= 500 && code <= 531) {
+        key = 500;
+      } else if (code >= 600 && code <= 622) {
+        key = 600;
+      } else if (code === 800){
+        key = 800;
+      } else if (code === 801 || code === 802){
+        key = 801;
+      } else if (code === 803 || code === 804){
+        key = 803;
+      }
       let conditionMap = new Map();
-      conditionMap.set(100, "Clear");
-      conditionMap.set(200, "Partial Clouds");
-      conditionMap.set(300, "Cloudy");
-      conditionMap.set(400, "Light Showers");
-      conditionMap.set(500, "Heavy Showers");
-      conditionMap.set(600, "Rain");
-      conditionMap.set(700, "Thunder");
-      conditionMap.set(800, "Snow");
+      conditionMap.set(800, "Clear");
+      conditionMap.set(801, "Partial Clouds");
+      conditionMap.set(803, "Cloudy");
+      conditionMap.set(300, "Light Showers");
+      conditionMap.set(350, "Heavy Showers");
+      conditionMap.set(500, "Rain");
+      conditionMap.set(200, "Thunder");
+      conditionMap.set(600, "Snow");
 
-      return conditionMap.get(code);
+      return conditionMap.get(key);
     }
   },
 
   getWeatherIconFromCode(station){
     if (station.readings.length > 0) {
       let code = this.getLatestReading(station).code;
+      let key = null;
+      if (code >= 200 && code <= 232){
+        key = 200;
+      } else if (code >= 300 && code <= 311){
+        key = 300;
+      } else if (code >= 312 && code <= 321) {
+        key = 350;
+      } else if ( code >= 500 && code <= 531) {
+        key = 500;
+      } else if (code >= 600 && code <= 622) {
+        key = 600;
+      } else if (code === 800){
+        key = 800;
+      } else if (code === 801 || code === 802){
+        key = 801;
+      } else if (code === 803 || code === 804){
+        key = 803;
+      }
       let conditionIconMap = new Map();
-      conditionIconMap.set(100, "sunny");
-      conditionIconMap.set(200, "white_sun_small_cloud");
-      conditionIconMap.set(300, "cloud");
-      conditionIconMap.set(400, "white_sun_rain_cloud");
-      conditionIconMap.set(500, "cloud_rain");
-      conditionIconMap.set(600, "umbrella");
-      conditionIconMap.set(700, "thunder_cloud_rain");
-      conditionIconMap.set(800, "snowflake");
+      conditionIconMap.set(800, "sunny");
+      conditionIconMap.set(801, "white_sun_small_cloud");
+      conditionIconMap.set(803, "cloud");
+      conditionIconMap.set(300, "white_sun_rain_cloud");
+      conditionIconMap.set(350, "cloud_rain");
+      conditionIconMap.set(500, "umbrella");
+      conditionIconMap.set(200, "thunder_cloud_rain");
+      conditionIconMap.set(600, "snowflake");
 
-      return conditionIconMap.get(code);
+      return conditionIconMap.get(key);
     }
   },
 

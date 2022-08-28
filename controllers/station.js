@@ -5,6 +5,7 @@ const stationStore = require("../models/station-store.js");
 const uuid = require('uuid');
 const stationAnalytics = require("../utils/station-analytics");
 const axios = require("axios");
+const trends = require('../utils/trends');
 
 const station = {
   index(request,response){
@@ -30,9 +31,15 @@ const station = {
         weatherConditionIcon: stationAnalytics.getWeatherIconFromCode(station),
         temperatureTrend: stationAnalytics.trendIcon(stationAnalytics.temperatureTrend(station)),
         pressureTrend: stationAnalytics.trendIcon(stationAnalytics.pressureTrend(station)),
-      }
+        trendlabel: trends.getTrendLabelData(station),
+        temperatureChartTrend: trends.temperatureTrendData(station),
+        windSpeedChartTrend: trends.windSpeedTrendData(station),
+      },
+
+
     }
     logger.info('about to render' + stationStore.getStation(stationId))
+    console.log(trends.getTrendLabelData(station));
     response.render('station', viewData);
 
   },
@@ -72,9 +79,10 @@ const station = {
     const requestUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=d52e00baa769d246e850c002f3093f85`;
     const result = await axios.get(requestUrl);
     if (result.status === 200){
+      console.log(result.data);
       const newReport ={
         id: uuid.v1(),
-        code: Number (result.data.cod),
+        code: Number ( result.data.weather[0].id),
         temperature: Number (result.data.main.temp),
         windspeed: Number (result.data.wind.speed),
         winddirection: Number (result.data.wind.deg),

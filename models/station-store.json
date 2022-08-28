@@ -8,15 +8,6 @@
       "longitude": "-6.26",
       "readings": [
         {
-          "id": "52499290-2307-11ed-a35f-1bc7a46fd44d",
-          "code": 100,
-          "temperature": 10,
-          "windspeed": 31,
-          "winddirection": 104,
-          "pressure": 993,
-          "date": "Tue, 23 Aug 2022 17:16:27 GMT"
-        },
-        {
           "id": "dfe12190-2307-11ed-a35f-1bc7a46fd44d",
           "code": 200,
           "temperature": 19,
@@ -26,15 +17,6 @@
           "date": "Tue, 23 Aug 2022 17:20:24 GMT"
         },
         {
-          "id": "47e93610-2308-11ed-a35f-1bc7a46fd44d",
-          "code": 500,
-          "temperature": 4,
-          "windspeed": 33,
-          "winddirection": 163,
-          "pressure": 1004,
-          "date": "Tue, 23 Aug 2022 17:23:19 GMT"
-        },
-        {
           "id": "00d58eb0-25fe-11ed-b019-37bab4ba736d",
           "code": 200,
           "temperature": 19.06,
@@ -42,6 +24,42 @@
           "winddirection": 80,
           "pressure": 1021,
           "date": "Sat, 27 Aug 2022 11:47:20 GMT"
+        },
+        {
+          "id": "a248fa40-26d3-11ed-96e1-a3177f78d855",
+          "code": 200,
+          "temperature": 17.63,
+          "windspeed": 3.6,
+          "winddirection": 70,
+          "pressure": 1023,
+          "date": "Sun, 28 Aug 2022 13:16:34 GMT"
+        },
+        {
+          "id": "57b30730-26da-11ed-a6d6-e54a46011aea",
+          "code": 500,
+          "temperature": 17.83,
+          "windspeed": 3.09,
+          "winddirection": 50,
+          "pressure": 1023,
+          "date": "Sun, 28 Aug 2022 14:04:37 GMT"
+        },
+        {
+          "id": "91dc05d0-26e7-11ed-8f4f-df210556c037",
+          "code": 803,
+          "temperature": 18,
+          "windspeed": 4.63,
+          "winddirection": 80,
+          "pressure": 1023,
+          "date": "Sun, 28 Aug 2022 15:39:16 GMT"
+        },
+        {
+          "id": "efb39580-26ea-11ed-8f5c-456d52631194",
+          "code": 803,
+          "temperature": 17.8,
+          "windspeed": 4.63,
+          "winddirection": 80,
+          "pressure": 1023,
+          "date": "Sun, 28 Aug 2022 16:03:22 GMT"
         }
       ]
     },
@@ -53,13 +71,13 @@
       "longitude": "-0.11",
       "readings": [
         {
-          "id": "211e05d0-25fe-11ed-b019-37bab4ba736d",
-          "code": 200,
-          "temperature": 23.17,
-          "windspeed": 4.12,
-          "winddirection": 90,
-          "pressure": 1018,
-          "date": "Sat, 27 Aug 2022 11:48:14 GMT"
+          "id": "99a73bb0-26ea-11ed-8919-fbb42818e36d",
+          "code": 804,
+          "temperature": 22.5,
+          "windspeed": 7.2,
+          "winddirection": 100,
+          "pressure": 1021,
+          "date": "Sun, 28 Aug 2022 16:00:58 GMT"
         }
       ]
     }

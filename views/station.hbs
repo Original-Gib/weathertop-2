@@ -4,6 +4,26 @@
   <h2 class="ui header">
     {{> stationsummary}}
   </h2>
+
+  <div class="ui segment" id="chart"></div>
+  <script>
+    data = {
+      labels: [{{#each stationsummary.trendlabel}}
+        "{{this}}",
+      {{/each}}],
+      datasets: [
+        {name: 'Temperature', values: [{{stationsummary.temperatureChartTrend}}], chartType: 'line'},
+        {name: 'Wind Speed', values: [{{stationsummary.windSpeedChartTrend}}], chartType: 'line'}
+      ]
+    };
+    new frappe.Chart("#chart", {
+      data: data,
+      type: "line",
+      height: 180,
+      colors: ["red"]
+    });
+  </script>
+
   {{> listreadings}}
   {{> addreading}}
 
