@@ -64,10 +64,18 @@ const station = {
       winddirection: Number (request.body.winddirection),
       pressure: Number (request.body.pressure),
       date: date.toGMTString(),
-
     };
-    stationStore.addReading(stationId, newReading);
-    response.redirect('/station/' + stationId);
+    if(newReading.code % 100 === 0
+      && newReading.temperature < 60
+      && newReading.temperature > -90
+      && newReading.winddirection >= 0
+      && newReading.winddirection <= 360) {
+      stationStore.addReading(stationId, newReading);
+      response.redirect('/station/' + stationId);
+    } else {
+      logger.info('Invalid reading parameters entered')
+      response.redirect('/station/' + stationId)
+    };
   },
 
     async addReport(request, response) {

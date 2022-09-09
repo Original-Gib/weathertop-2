@@ -38,7 +38,7 @@ const stationAnalytics = {
     let fahrenheit = null;
     if (station.readings.length > 0) {
       let celcius = this.getLatestReading(station).temperature;
-      fahrenheit = (9 * celcius / 5) + 32
+      fahrenheit = ((9 * celcius / 5) + 32).toFixed(2);
     }
     return fahrenheit;
   },

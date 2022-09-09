@@ -12,6 +12,7 @@ const dashboard = {
   index(request, response) {
     logger.info("dashboard rendering");
     const loggedInUser = accounts.getCurrentUser(request);
+    let stations = stationStore.getUserStations(loggedInUser.id);
     let station = null;
     let latestReading = null;
     let maxTemp = null;
@@ -24,23 +25,12 @@ const dashboard = {
     let windDirectionCompass = null;
     let maxWindSpeed = null;
     let minWindSpeed = null;
-    // for(station of stations) {
-    //   latestReading = stationAnalytics.getLatestReading(station);
-    //   maxTemp = stationAnalytics.getMaxTemperature(station);
-    //   minTemp = stationAnalytics.getMinTemperature(station);
-    //   fahrenheit = stationAnalytics.celciusToFahrenheit(station);
-    //   maxPressure = stationAnalytics.getMaxPressure(station);
-    //   minPressure = stationAnalytics.getMinPressure(station);
-    //   beaufort = stationAnalytics.beaufortConversion(station);
-    //   windDirectionCompass = stationAnalytics.windCompassDirection(station);
-    //   maxWindSpeed = stationAnalytics.getMaxWindSpeed(station);
-    //   minWindSpeed = stationAnalytics.getMinWindSpeed(station);
-    //   windChill = stationAnalytics.calculateWindChill(station);
-    // }
+    for(let station of stations){
+      latestReading = stationAnalytics.getLatestReading(station);
+    }
     let viewData = {
         title: "Station Dashboard",
         stations: stationStore.getUserStations(loggedInUser.id),
-        station: station,
         stationsummary: {
           latestReading: latestReading,
           maxTemp: maxTemp,
