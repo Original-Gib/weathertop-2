@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const fileUpload = require("express-fileupload");
 
 const app = express();
+
 app.use(cookieParser());
 const exphbs = require("express-handlebars");
 app.use(bodyParser.urlencoded({extended: false}));
@@ -20,6 +21,7 @@ app.engine(
     })
 );
 app.set("view engine", ".hbs");
+app.use(express.static(__dirname+'/public'));
 
 const routes = require("./routes");
 app.use("/", routes);
