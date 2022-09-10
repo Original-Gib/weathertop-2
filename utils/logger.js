@@ -1,13 +1,13 @@
-const {createLogger, format, transports} = require("winston");
-const {combine, timestamp, label, prettyPrint} = format;
+const { createLogger, format, transports } = require("winston");
+const { combine, timestamp, label, prettyPrint } = format;
 
 const logger = createLogger({
   format: combine(
-      label({label: "WeatherTop-2"}),
-      //timestamp(),
-      prettyPrint()
+    label({ label: "WeatherTop-2" }),
+    //timestamp(),
+    prettyPrint()
   ),
-  transports: [new transports.Console()]
+  transports: [new transports.Console()],
 });
 
 module.exports = logger;
